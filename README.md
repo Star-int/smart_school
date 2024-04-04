@@ -2,3 +2,6 @@
 
 前端代码front-运行是用idea 配置npm   或者用vscode  npm i   然后npm server dev
 
+
+要启动nacos服务才能正常运行
+
