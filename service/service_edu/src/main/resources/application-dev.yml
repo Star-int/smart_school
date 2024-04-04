@@ -1,0 +1,71 @@
+####  application-dev.yml
+server:
+  port: 8001
+
+mybatis-plus:
+  mapper-locations: classpath:com/atguigu/eduservice/mapper/xml/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/smartschool?serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+
+  redis:
+    host: 192.168.147.131
+    port: 6379
+    password: 12345678
+    datebase: 0
+    timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+  application:
+    name: service-edu
+
+
+
+
+hikari:
+  connection-test-query: SELECT 1
+  connection-timeout: 60000
+  idle-timeout: 500000
+  max-lifetime: 540000
+  maximum-pool-size: 12
+  minimum-idle: 10
+  pool-name: GuliHikariPool
+jackson:
+  date-format: yyyy-MM-dd HH:mm:ss
+  time-zone: GMT+8
+
+feign:
+  hystrix:
+    enabled: true
+    command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 6000
+
+#logging:
+#  level:
+#    root: WARN

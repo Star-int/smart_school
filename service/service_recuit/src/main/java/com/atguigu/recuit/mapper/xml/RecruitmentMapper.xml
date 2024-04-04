@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.recuit.mapper.RecruitmentMapper">
+
+    <select id="getWebList" resultType="com.atguigu.recuit.entity.Vo.RecruitWebListVo">
+       select recruitment.id,website,company_name,position_name from recruitment LEFT JOIN  recruitment_company  ON recruitment.company_id = recruitment_company.id
+              ORDER BY RAND()
+              LIMIT 4;
+
+    </select>
+</mapper>
